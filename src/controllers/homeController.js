@@ -3,11 +3,17 @@ import jwt from 'jsonwebtoken'
 import md5 from "md5";
 // import e from "express";
 
+// const homePage = async (req, res) => {
+//     const [settings] = await connection.query('SELECT `app` FROM admin');
+//     let app = settings[0].app;
+//     return res.render("home/index.ejs", { app });
+// }
 const homePage = async (req, res) => {
-    const [settings] = await connection.query('SELECT `app` FROM admin');
-    let app = settings[0].app;
-    return res.render("home/index.ejs", { app });
+    const [settings] = await connection.query('SELECT * FROM demo');
+    let app = settings[0];
+    return res.render("index.ejs", { app });
 }
+
 
 const activityPage = async (req, res) => {
     return res.render("checkIn/activity.ejs");
