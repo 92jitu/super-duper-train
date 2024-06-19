@@ -10,5 +10,17 @@ const connection = mysql.createPool({
     queueLimit: 0
 });
 
+connection.getConnection((err, connection) => {
+  if (err) {
+    if (err.code === 'ETIMEDOUT') {
+      console.error('Connection timed out.');
+    } else {
+      console.error('Connection error:', err);
+    }
+  } else {
+    console.log('Connected to the database.');
+    connection.release();
+  }
+});
 
 export default connection;
