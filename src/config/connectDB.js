@@ -9,9 +9,6 @@ const connection = mysql.createPool({
     connectionLimit: 10,
     queueLimit: 0
 });
-connection.getConnection((err, conn) => {
-    if(err) console.log(err)
-    console.log("Connected successfully")
-})
+
 
 export default connection;
