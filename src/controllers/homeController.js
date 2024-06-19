@@ -11,7 +11,7 @@ import md5 from "md5";
 const homePage = async (req, res) => {
     const [settings] = await connection.query('SELECT * FROM demo');
     let app = settings[0];
-    return res.render("index.ejs", { app });
+    return res.render("home/index.ejs", { app });
 }
 
 
