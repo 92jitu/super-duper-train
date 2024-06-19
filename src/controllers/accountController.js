@@ -136,7 +136,7 @@ const register = async (req, res) => {
                 status: false
             });
         } else {
-            if (check_i.length == 1) {
+            // if (check_i.length == 1) {
                 if (check_ip.length <= 3) {
                     let ctv = '';
                     if (check_i[0].level == 2) {
@@ -176,12 +176,12 @@ const register = async (req, res) => {
                         status: false
                     });
                 }
-            } else {
-                return res.status(200).json({
-                    message: 'Referrer code does not exist',
-                    status: false
-                });
-            }
+            // } else {
+            //     return res.status(200).json({
+            //         message: 'Referrer code does not exist',
+            //         status: false
+            //     });
+            // }
         }
     } catch (error) {
         if (error) console.log(error);
