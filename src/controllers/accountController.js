@@ -148,19 +148,19 @@ const register = async (req, res) => {
                     await connection.execute(sql, [id_user, username, name_user, md5(pwd), pwd, 0, code, invitecode, ctv, 1, otp2, ip, 1, time]);
                     await connection.execute('INSERT INTO point_list SET phone = ?', [username]);
 
-                    let [check_code] = await connection.query('SELECT * FROM users WHERE invite = ? ', [invitecode]);
+                    // let [check_code] = await connection.query('SELECT * FROM users WHERE invite = ? ', [invitecode]);
 
-                    if(check_i.name_user !=='Admin'){
-                        let levels = [2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44];
+                    // if(check_i.name_user !=='Admin'){
+                    //     let levels = [2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44];
 
-                        for (let i = 0; i < levels.length; i++) {
-                            if (check_code.length >= levels[i]) {
-                                await connection.execute('UPDATE users SET user_level = ? WHERE code = ?', [i + 1, invitecode]);
-                            } else {
-                                break;
-                            }
-                        }
-                    }
+                    //     for (let i = 0; i < levels.length; i++) {
+                    //         if (check_code.length >= levels[i]) {
+                    //             await connection.execute('UPDATE users SET user_level = ? WHERE code = ?', [i + 1, invitecode]);
+                    //         } else {
+                    //             break;
+                    //         }
+                    //     }
+                    // }
 
 
                     let sql4 = 'INSERT INTO turn_over SET phone = ?, code = ?, invite = ?';
