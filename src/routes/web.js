@@ -24,7 +24,7 @@ const initWebRouter = (app) => {
 
     // page home
     router.get('/', (req, res) => {
-        return res.redirect('index.ejs');
+        return res.redirect('/home');
     });
     router.get('/home', homeController.homePage);
 
