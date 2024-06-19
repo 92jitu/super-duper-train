@@ -5,7 +5,7 @@ import e from "express";
 
 const homePage = async (req, res) => {
     const [settings] = await connection.query('SELECT `app` FROM admin');
-    let app = settings[0].app;
+    let app = "helllloooo";
     return res.render("home/index.ejs", { app });
 }
 // const homePage = async (req, res) => {
