@@ -1,10 +1,17 @@
 const mysql = require('mysql2/promise');
 
 const connection = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'tringa_demo',
+   host: process.env.DATABASE_HOST, 
+    user: process.env.DATABASE_USER, 
+    password: process.env.DATABASE_PASSWORD,
+    database: process.env.DATABASE_NAME,
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0
 });
+connection.getConnection((err, conn) => {
+    if(err) console.log(err)
+    console.log("Connected successfully")
+})
 
 export default connection;
